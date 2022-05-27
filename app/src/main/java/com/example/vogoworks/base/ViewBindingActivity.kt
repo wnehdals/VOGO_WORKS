@@ -24,8 +24,10 @@ abstract class ViewBindingActivity<T : ViewDataBinding> : ActivityBase() {
 
     open fun initView() = Unit
     abstract fun subscribe()
+    abstract fun initEvent()
     open fun initState() {
         initView()
+        initEvent()
         subscribe()
     }
 }

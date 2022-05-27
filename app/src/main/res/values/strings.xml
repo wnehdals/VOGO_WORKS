@@ -1,4 +1,12 @@
 <resources>
     <string name="app_name">VogoWorks</string>
     <string name="location_permission_no">위치정보 권환을 거부하셨습니다.</string>
+    <string name="permission_guide_title">권한 안내</string>
+    <string name="permission_guide_text">사용자 핸드폰 GPS 정보를 얻기위해 사용자 권한이 필요합니다.\n</string>
+    <string name="ready_to_start_title">시작하기 전에</string>
+    <string name="ready_to_start_text">더 나은 서비스 이용을 위해\n동의가 필요한 내용을 확인해주세요</string>
+    <string name="location_description">사용자와 패스트파이브 사이 거리를\n측정하기위해 사용됩니다. </string>
+    <string name="vogo_works_start">보고웍스 시작하기</string>
+    <string name="background_permission_title">백그라운드 권한 설정</string>
+    <string name="background_permission_desc">앱을 종료하였을 때에도 위치정보를\n수신받을 수 있도록 권한을 허용해 주세요</string>
 </resources>
