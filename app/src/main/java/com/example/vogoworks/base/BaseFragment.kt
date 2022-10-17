@@ -11,9 +11,9 @@ open class BaseFragment : Fragment(), IProgressDialog {
     protected var backPressedTime: Long = 0
 
 
-    override fun showProgressDialog() {
+    override fun showProgressDialog(str: String) {
         progressDialog?.dismiss()
-        progressDialog = ProgressDialog(requireContext(), "")
+        progressDialog = ProgressDialog(requireContext(), str)
         progressDialog?.show()
     }
 

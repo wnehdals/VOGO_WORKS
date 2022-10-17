@@ -7,11 +7,19 @@
         <entry key="..\:/Users/jdm/Documents/VOGO_WORKS/app/src/main/res/layout/activity_main.xml" value="0.2712765957446808" />
         <entry key="..\:/Users/jdm/Documents/VOGO_WORKS/app/src/main/res/layout/base_appbar.xml" value="0.2712765957446808" />
         <entry key="..\:/Users/jdm/Documents/VOGO_WORKS/app/src/main/res/layout/layout_progressbar.xml" value="0.2712765957446808" />
+        <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.3215" />
         <entry key="app/src/main/res/drawable/background_dialog.xml" value="0.168" />
+        <entry key="app/src/main/res/drawable/ic_baseline_location_on_24.xml" value="0.3215" />
+        <entry key="app/src/main/res/drawable/ic_chevron_left.xml" value="0.3215" />
+        <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.3215" />
+        <entry key="app/src/main/res/drawable/ic_main_background.xml" value="0.3215" />
         <entry key="app/src/main/res/layout/activity_back_ground_permission.xml" value="0.2" />
+        <entry key="app/src/main/res/layout/activity_initial.xml" value="0.18125" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.2" />
         <entry key="app/src/main/res/layout/activity_permision.xml" value="0.271286231884058" />
         <entry key="app/src/main/res/layout/dialog_simple.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_bank.xml" value="0.1859375" />
+        <entry key="app/src/main/res/layout/item_bank.xml" value="0.2" />
       </map>
     </option>
   </component>

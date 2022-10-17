@@ -13,8 +13,10 @@ import androidx.work.Constraints
 import androidx.work.NetworkType
 import com.example.vogoworks.base.ViewBindingActivity
 import com.example.vogoworks.databinding.ActivityPermisionBinding
+import com.example.vogoworks.util.Const.SET_BASE_GPS
 import com.example.vogoworks.util.GPSListener
 import com.example.vogoworks.util.hasPermission
+import com.orhanobut.hawk.Hawk
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -85,8 +87,15 @@ class PermissionActivity : ViewBindingActivity<ActivityPermisionBinding>() {
                     }
                 }
                 STEP_3 -> {
-                    Intent(this, BackGroundPermissionActivity::class.java).also {
-                        startActivity(it)
+                    var isBaseSetting = Hawk.get(SET_BASE_GPS)?: false
+                    if (isBaseSetting) {
+                        Intent(this, BackGroundPermissionActivity::class.java).also {
+                            startActivity(it)
+                        }
+                        finish()
+                    } else {
+                        Intent(this, InitialActivity::class.java).also { startActivity(it) }
+                        finish()
                     }
                 }
             }

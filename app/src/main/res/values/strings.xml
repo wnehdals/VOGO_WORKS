@@ -9,4 +9,12 @@
     <string name="vogo_works_start">보고웍스 시작하기</string>
     <string name="background_permission_title">백그라운드 권한 설정</string>
     <string name="background_permission_desc">앱을 종료하였을 때에도 위치정보를\n수신받을 수 있도록 권한을 허용해 주세요</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="in_time_title">출근 시간 설정</string>
+    <string name="in_Time_desc">설정한 출근 시간 이후일 경우 \n알림을 보냅니다.</string>
+    <string name="out_time_title">퇴근 시간 범위 설정</string>
+    <string name="out_Time_desc">설정한 퇴근 시간 이후일 경우 \n알림을 보냅니다.</string>를
+    <string name="gps_guide_alert_message">현재 위치를 기준 위치로 설정하시겠습니가?</string>
+    <string name="gps_setting">설정 중</string>
 </resources>

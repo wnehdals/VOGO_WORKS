@@ -1,9 +1,9 @@
 package com.example.vogoworks
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
-import android.widget.Toast
+import android.net.Uri
+import android.provider.Settings
+import android.util.Log
 import androidx.activity.result.contract.ActivityResultContracts
 import com.example.vogoworks.base.ViewBindingActivity
 import com.example.vogoworks.databinding.ActivityBackGroundPermissionBinding
@@ -15,7 +15,12 @@ class BackGroundPermissionActivity : ViewBindingActivity<ActivityBackGroundPermi
     private val permission = android.Manifest.permission.ACCESS_BACKGROUND_LOCATION
     private val requestMultiplePermissionLauncher =
         registerForActivityResult(ActivityResultContracts.RequestPermission()) {
-
+            Log.e("permission", it.toString())
+            if (!it) {
+                val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
+                intent.data = Uri.parse("package:" + this.packageName)
+                startActivity(intent)
+            }
         }
 
     override fun subscribe() {

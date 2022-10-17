@@ -56,9 +56,9 @@ open class ActivityBase : AppCompatActivity(), IProgressDialog {
         super.onDestroy()
     }
 
-    override fun showProgressDialog() {
+    override fun showProgressDialog(str: String) {
         progressDialog?.dismiss()
-        progressDialog = ProgressDialog(this, "")
+        progressDialog = ProgressDialog(this, str)
         progressDialog?.show()
     }
 
