@@ -6,11 +6,10 @@ import android.content.pm.ResolveInfo
 import android.os.Build
 import android.os.IBinder
 import android.os.Looper
-import android.os.Parcelable
 import android.util.Log
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
-import com.example.vogoworks.MainActivity
+import com.example.vogoworks.ui.MainActivity
 import com.example.vogoworks.R
 import com.example.vogoworks.util.Const
 import com.example.vogoworks.util.Const.ACTION_START_LOCATION_SERVICE
@@ -21,8 +20,6 @@ import com.example.vogoworks.util.Const.VOGO_LONGITUDE
 import com.example.vogoworks.util.TimeUtil
 import com.example.vogoworks.util.hasPermission
 import com.google.android.gms.location.*
-import java.text.SimpleDateFormat
-import java.util.*
 
 class FusedLocationService : Service() {
     lateinit var fusedLocationClient: FusedLocationProviderClient

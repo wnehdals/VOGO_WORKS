@@ -1,34 +1,58 @@
 package com.example.vogoworks.base
 
+import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
+import androidx.annotation.LayoutRes
+import androidx.databinding.DataBindingUtil
+import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
-import com.example.vogoworks.common.progressdialog.IProgressDialog
-import com.example.vogoworks.common.progressdialog.ProgressDialog
 
-open class BaseFragment : Fragment(), IProgressDialog {
-    private var progressDialog: ProgressDialog? = null
-    protected var callBack: OnBackPressedCallback? = null
+abstract class BaseFragment<T : ViewDataBinding> : Fragment() {
+    @get:LayoutRes
+    abstract val layoutId: Int
+    private lateinit var _binding: T
+    val binding: T
+        get() = _binding
+
+
+    protected var onBackPressedCallBack: OnBackPressedCallback? = null
     protected var backPressedTime: Long = 0
 
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        _binding = DataBindingUtil.inflate(inflater, layoutId, container, false)
+        return binding.root
 
-    override fun showProgressDialog(str: String) {
-        progressDialog?.dismiss()
-        progressDialog = ProgressDialog(requireContext(), str)
-        progressDialog?.show()
     }
 
-    override fun hideProgressDialog() {
-        progressDialog?.dismiss()
-        progressDialog = null
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        initState()
     }
 
     override fun onDestroy() {
         super.onDestroy()
+        _binding.unbind()
+    }
+
+    open fun initState() {
+        initView()
+        initEvent()
+        subscribe()
     }
 
     override fun onDetach() {
-        callBack?.remove()
         super.onDetach()
     }
 
+    abstract fun initView()
+    abstract fun initEvent()
+    abstract fun subscribe()
 }

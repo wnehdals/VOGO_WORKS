@@ -17,4 +17,8 @@
     <string name="out_Time_desc">설정한 퇴근 시간 이후일 경우 \n알림을 보냅니다.</string>를
     <string name="gps_guide_alert_message">현재 위치를 기준 위치로 설정하시겠습니가?</string>
     <string name="gps_setting">설정 중</string>
+    <string name="notification_name">알림 이름</string>
+    <string name="set_current_location">현재 위치로 설정</string>
+    <string name="latitude">위도</string>
+    <string name="longitude">경도</string>
 </resources>

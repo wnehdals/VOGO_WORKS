@@ -23,7 +23,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.VogoWorks">
         <activity
-            android:name=".InitialActivity"
+            android:name=".ui.write.WriteActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".ui.InitialActivity"
             android:exported="false" />
 
         <service
@@ -33,14 +40,14 @@
             android:foregroundServiceType="location" />
 
         <activity
-            android:name=".MainActivity"
+            android:name=".ui.MainActivity"
             android:exported="false"
             android:launchMode="singleTop" />
         <activity
-            android:name=".BackGroundPermissionActivity"
+            android:name=".ui.permission.BackGroundPermissionActivity"
             android:exported="false" />
         <activity
-            android:name=".PermissionActivity"
+            android:name=".ui.permission.PermissionActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
