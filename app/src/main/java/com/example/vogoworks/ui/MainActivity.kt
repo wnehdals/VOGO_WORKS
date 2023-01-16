@@ -25,15 +25,6 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
 
     override fun initEvent() {
         with(binding) {
-            serviceStartButton.setOnClickListener {
-                startLocationService()
-            }
-            serviceStopButton.setOnClickListener {
-                stopLocationService()
-            }
-            setttingBt.setOnClickListener {
-
-            }
             mainFt.setOnClickListener {
                 Intent(this@MainActivity, WriteActivity::class.java).also { startActivity(it) }
             }

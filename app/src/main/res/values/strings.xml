@@ -21,4 +21,20 @@
     <string name="set_current_location">현재 위치로 설정</string>
     <string name="latitude">위도</string>
     <string name="longitude">경도</string>
+    <string name="alarm_condition">알림 조건</string>
+    <string name="alarm_time_guide_text_1">알림을 받을 시간 범위를 입력해주세요.</string>
+    <string name="location_setting">위치설정</string>
+    <string name="current_location_setting">현재 위치로 설정</string>
+    <string name="complete">완료</string>
+    <string name="location_direction">방향설정</string>
+    <string name="location_in_guide">설정된 위치 범위에 들어올 경우 알림을 받게됩니다.</string>
+    <string name="location_out_guide">설정된 위치 범위를 벗어나는 경우 알림을 받게됩니다.</string>
+    <string name="en_in">IN</string>
+    <string name="en_out">OUT</string>
+    <string name="cancel">취소</string>
+    <string name="confirm">확인</string>
+    <string name="location_searching">위치 설정중...</string>
+    <string name="please_input_alarm_start_time">알림을 받을 시작시간을 입력해주세요.</string>
+    <string name="please_input_alarm_end_time">알림을 받을 종료시간을 입력해주세요.</string>
+    <string name="please_input_alarm_location">알림을 받을 위치를 설정해주세요.</string>
 </resources>

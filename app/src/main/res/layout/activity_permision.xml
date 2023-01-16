@@ -3,15 +3,17 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:fillViewport="true">
 
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/main_guide_constraintlayout"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:background="@color/color_f8effb">
 
             <TextView
                 android:id="@+id/main_guide_title"
@@ -27,43 +29,67 @@
                 app:layout_constraintTop_toTopOf="parent" />
             <TextView
                 android:id="@+id/main_guide_text"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/ready_to_start_text"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                android:gravity="center"
                 app:layout_constraintTop_toBottomOf="@+id/main_guide_title"
                 android:layout_marginTop="24dp"/>
+            <soup.neumorphism.NeumorphCardView
+                android:id="@+id/permission_cv"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/main_guide_text"
+                android:layout_marginTop="24dp"
+                app:neumorph_shapeAppearance="@style/CustomShapeRound"
+                app:neumorph_shadowElevation="6dp"
+                app:neumorph_shapeType="basin">
+            </soup.neumorphism.NeumorphCardView>
             <ImageView
                 android:id="@+id/main_guide_location_img"
                 android:layout_width="36dp"
                 android:layout_height="36dp"
-                android:src="@drawable/ic_baseline_location_on_24"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/main_guide_text"
-                android:layout_marginTop="24dp"/>
+                android:src="@drawable/ic_locations_917ffb"
+                app:layout_constraintStart_toStartOf="@+id/permission_cv"
+                app:layout_constraintEnd_toEndOf="@+id/permission_cv"
+                app:layout_constraintTop_toTopOf="@+id/permission_cv"
+                app:layout_constraintBottom_toBottomOf="@+id/permission_cv"
+                />
             <TextView
                 android:id="@+id/main_guide_location_desc"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:gravity="center"
                 android:text="@string/location_description"
-                app:layout_constraintTop_toBottomOf="@+id/main_guide_location_img"
+                app:layout_constraintTop_toBottomOf="@+id/permission_cv"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"/>
-            <Button
+            <soup.neumorphism.NeumorphCardView
                 android:id="@+id/main_guide_start_button"
                 android:layout_width="0dp"
-                android:layout_height="60dp"
+                android:layout_height="80dp"
+                style="@style/Widget.Neumorph.CardView"
+                app:neumorph_shadowElevation="6dp"
+                app:neumorph_shapeType="flat"
+                app:neumorph_lightSource="leftTop"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                android:layout_marginHorizontal="24dp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                android:background="@color/color_f8f9fa"
-                android:layout_marginBottom="24dp"
+                android:layout_marginHorizontal="24dp"
+                android:layout_marginBottom="24dp" />
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintTop_toTopOf="@+id/main_guide_start_button"
+                app:layout_constraintStart_toStartOf="@+id/main_guide_start_button"
+                app:layout_constraintEnd_toEndOf="@+id/main_guide_start_button"
+                app:layout_constraintBottom_toBottomOf="@+id/main_guide_start_button"
+                android:gravity="center"
                 android:text="@string/vogo_works_start"/>
-
-
         </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
 </layout>

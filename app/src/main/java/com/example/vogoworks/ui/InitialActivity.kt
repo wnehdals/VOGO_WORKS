@@ -1,9 +1,12 @@
 package com.example.vogoworks.ui
 
+import android.Manifest
 import android.content.DialogInterface
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.os.Looper
 import android.util.Log
+import androidx.core.app.ActivityCompat
 import com.example.vogoworks.R
 import com.example.vogoworks.base.BaseActivity
 import com.example.vogoworks.databinding.ActivityInitialBinding
@@ -24,7 +27,6 @@ class InitialActivity : BaseActivity<ActivityInitialBinding>() {
     lateinit var fusedLocationClient: FusedLocationProviderClient
     val locationCallback = object : LocationCallback() {
         override fun onLocationResult(locationResult: LocationResult) {
-
             for (location in locationResult.locations) {
                 if (location != null) {
                     val latitude = location.latitude
@@ -41,6 +43,10 @@ class InitialActivity : BaseActivity<ActivityInitialBinding>() {
             }
         }
     }
+    private val permission = arrayOf(
+        Manifest.permission.ACCESS_FINE_LOCATION,
+        Manifest.permission.ACCESS_COARSE_LOCATION,
+    )
     override fun subscribe() {
     }
 
@@ -62,6 +68,12 @@ class InitialActivity : BaseActivity<ActivityInitialBinding>() {
     }
     fun showSettingDialog() {
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
+
+        if (ActivityCompat.checkSelfPermission(this, permission[0]) != PackageManager.PERMISSION_GRANTED &&
+            ActivityCompat.checkSelfPermission(this, permission[1]) != PackageManager.PERMISSION_GRANTED) {
+
+            return
+        }
         fusedLocationClient.requestLocationUpdates(createLocationRequest(), locationCallback, Looper.getMainLooper())
     }
     fun createLocationRequest(): LocationRequest {

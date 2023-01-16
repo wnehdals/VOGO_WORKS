@@ -93,6 +93,7 @@ dependencies {
     implementation "androidx.work:work-runtime-ktx:$work_version"
     implementation "com.orhanobut:hawk:2.0.1"
 
+    implementation 'com.github.fornewid:neumorphism:0.3.2'
 
 
 }
