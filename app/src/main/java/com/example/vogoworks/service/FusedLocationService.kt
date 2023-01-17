@@ -9,7 +9,7 @@ import android.os.Looper
 import android.util.Log
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
-import com.example.vogoworks.ui.MainActivity
+import com.example.vogoworks.ui.main.MainActivity
 import com.example.vogoworks.R
 import com.example.vogoworks.util.Const
 import com.example.vogoworks.util.Const.ACTION_START_LOCATION_SERVICE

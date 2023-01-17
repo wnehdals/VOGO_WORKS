@@ -8,7 +8,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import com.example.vogoworks.R
 import com.example.vogoworks.base.BaseActivity
 import com.example.vogoworks.databinding.ActivityBackGroundPermissionBinding
-import com.example.vogoworks.ui.MainActivity
+import com.example.vogoworks.ui.main.MainActivity
 import com.example.vogoworks.util.hasPermission
 
 class BackGroundPermissionActivity : BaseActivity<ActivityBackGroundPermissionBinding>() {

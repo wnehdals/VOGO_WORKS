@@ -1,10 +1,11 @@
-package com.example.vogoworks.ui
+package com.example.vogoworks.ui.main
 
 import android.app.ActivityManager
 import android.content.Context
 import android.content.Intent
 import android.content.pm.ResolveInfo
 import android.util.Log
+import androidx.activity.viewModels
 import com.example.vogoworks.R
 import com.example.vogoworks.base.BaseActivity
 import com.example.vogoworks.databinding.ActivityMainBinding
@@ -14,12 +15,16 @@ import com.example.vogoworks.util.Const.ACTION_START_LOCATION_SERVICE
 import com.example.vogoworks.util.Const.ACTION_STOP_LOCATION_SERVICE
 import com.example.vogoworks.util.Const.RUN_APP_PACKAGE
 import com.example.vogoworks.util.Const.SERVICE_NAME
+import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 class MainActivity : BaseActivity<ActivityMainBinding>() {
+
+    private val viewModel: MainViewModel by viewModels()
     override val layoutId: Int
         get() = R.layout.activity_main
-    var flag = false
+
+    private val alarmAdapter: AlarmAdapter by lazy { AlarmAdapter(this) }
     override fun subscribe() {
     }
 
@@ -31,43 +36,14 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
 
         }
     }
-    fun getPackageList(): Boolean {
-        var isExist = false
-        val pkgMgr = packageManager
-        val mApps: List<ResolveInfo>
-        val mainIntent = Intent(Intent.ACTION_MAIN, null)
-        mainIntent.addCategory(Intent.CATEGORY_LAUNCHER)
-        mApps = pkgMgr.queryIntentActivities(mainIntent, 0)
-        try {
-            for (i in mApps.indices) {
-                if (mApps[i].activityInfo.packageName.startsWith(RUN_APP_PACKAGE)) {
-                    isExist = true
-                    break
-                }
-            }
-        } catch (e: Exception) {
-            isExist = false
-        }
-        return isExist
-    }
 
     override fun initView() {
-
-    }
-
-    override fun onStart() {
-        super.onStart()
-        flag = intent.getBooleanExtra("hiworks", false)
-        if (flag) {
-            if (getPackageList()) {
-                val intent = packageManager.getLaunchIntentForPackage(RUN_APP_PACKAGE)
-                intent!!.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-                startActivity(intent)
-            }
+        with(binding) {
+            mainRv.adapter = alarmAdapter
+            mainRv.setHasFixedSize(true)
         }
-
-
     }
+
     private fun isLocationServiceRunning(): Boolean {
         val activityManager: ActivityManager = getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager
         activityManager.getRunningServices(Int.MAX_VALUE).forEach {
